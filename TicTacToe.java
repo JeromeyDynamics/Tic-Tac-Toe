@@ -1,4 +1,3 @@
-package src.projects.tic_tac_toe;
 
 //imports
 import java.awt.*;
@@ -76,32 +75,6 @@ public class TicTacToe extends JPanel implements ActionListener {
         TicTacToe TTTPanel = new TicTacToe();
         // adds TicTacToe object to frame
         frame.add(TTTPanel);
-
-        frame.addWindowListener(new WindowAdapter() {
-            public void windowOpened(WindowEvent e) {
-                try {
-                    File file = new File("score.txt");
-                    Scanner sc = new Scanner(file);
-                    gamePanel.setPlayerXWins(Integer.parseInt(sc.nextLine()));
-                    gamePanel.setPlayerOWins(Integer.parseInt(sc.nextLine()));
-                    sc.close();
-                } catch (IOException io) {
-                    // file doesnt exist
-                    File file = new File("score.txt");
-                }
-            }
-
-            public void windowClosing(WindowEvent e) {
-                try {
-                    PrintWriter pw = new PrintWriter("score.txt");
-                    pw.write("");
-                    pw.write(gamePanel.player1wins + "\n");
-                    pw.write(gamePanel.player2wins + "\n");
-                    pw.close();
-                } catch (FileNotFoundException e1) {
-                }
-            }
-        });
 
         // frame set up
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
