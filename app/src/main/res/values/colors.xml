@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#5D5FEF</color>
+    <color name="colorPrimaryDark">#4849B8</color>
+    <color name="colorAccent">#FFD166</color>
+
+    <!-- Game colors -->
+    <color name="backgroundColor">#F8F9FA</color>
+    <color name="gridColor">#5D5FEF</color>
+    <color name="xColor">#FF6B6B</color>
+    <color name="oColor">#4ECDC4</color>
+    <color name="tieColor">#757575</color>
+    <color name="textColor">#2D3142</color>
 </resources>
