@@ -1,29 +1,167 @@
-<!-- res/layout/activity_main.xml -->
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8EAF6">
+    android:background="@color/backgroundColor"
+    android:padding="16dp">
 
-    <!-- Custom Game View -->
-    <com.tictactoe2.tic_tac_toe2.TicTacToeView
-        android:id="@+id/gameView"
+    <!-- Status bar at the top with crown for winner -->
+    <LinearLayout
+        android:id="@+id/statusBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/playAgainButton"
-        android:layout_alignParentTop="true" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_status_background"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="12dp">
 
-    <!-- Play Again Button -->
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/game_font"
+            android:text="Game in progress"
+            android:textColor="@color/textColor"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/crownEmoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="👑"
+            android:textSize="24sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- Tic Tac Toe game board - centered in the screen -->
+    <com.tictactoe.tic_tac_toe.TicTacToeView
+        android:id="@+id/ticTacToeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/statusBar"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="32dp" />
+
+    <!-- Score panel -->
+    <LinearLayout
+        android:id="@+id/scorePanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ticTacToeView"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <!-- Player X score -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/player_x_score_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/game_font"
+                android:text="Player X"
+                android:textColor="@color/xColor"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/playerXScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/game_font"
+                android:text="0"
+                android:textColor="@color/xColor"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Ties score -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/ties_score_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/game_font"
+                android:text="Ties"
+                android:textColor="@color/tieColor"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tiesScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/game_font"
+                android:text="0"
+                android:textColor="@color/tieColor"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Player O score -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/player_o_score_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/game_font"
+                android:text="Player O"
+                android:textColor="@color/oColor"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/playerOScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/game_font"
+                android:text="0"
+                android:textColor="@color/oColor"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Play Again button (initially invisible, shown when game ends) -->
     <Button
         android:id="@+id/playAgainButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Play Again?"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:textSize="20sp"
-        android:padding="10dp"
-        android:background="#FFC107"
-        android:textColor="#FFFFFF"
+        android:layout_below="@id/scorePanel"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/game_font"
+        android:padding="16dp"
+        android:text="Play Again"
+        android:textColor="@color/playAgainButtonTextColor"
+        android:textSize="18sp"
         android:visibility="gone" />
 
 </RelativeLayout>

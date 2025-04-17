@@ -1,4 +1,4 @@
-package com.tictactoe2.tic_tac_toe2;
+package com.tictactoe.tic_tac_toe;
 
 import org.junit.Test;
 

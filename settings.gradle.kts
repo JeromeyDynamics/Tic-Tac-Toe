@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Tic-Tac-Toe 2"
-include ':app'
+rootProject.name = "Tic-Tac-Toe"
+include(":app")
+ 

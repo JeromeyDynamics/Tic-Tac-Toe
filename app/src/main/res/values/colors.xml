@@ -11,4 +11,5 @@
     <color name="oColor">#4ECDC4</color>
     <color name="tieColor">#757575</color>
     <color name="textColor">#2D3142</color>
+    <color name="playAgainButtonTextColor">#FBFBFB</color>
 </resources>
